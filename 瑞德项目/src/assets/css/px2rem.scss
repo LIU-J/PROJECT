@@ -1,0 +1,68 @@
+.clearfix{
+    &:before,&:after{
+        content: ""; 
+        display:table;
+    }
+    &:after{
+        clear: both;
+    }
+}
+select,option{margin: 0; padding: 0;}
+html{background:#f1f2f2;}
+body{font-family: "微软雅黑"; color: #000;}
+a,a:hover{color: #000; text-decoration: none;}
+i{font-style: normal;}
+h3,h4{font-weight: normal;}
+$baseFs:64px;
+
+@mixin px2rem($property,$px-values,$baseline-px:$baseFs){ 
+    $baseline-rem: $baseline-px/1rem * 1; 
+    @if type-of($px-values) == "number"{ 
+        $property: $px-values / $baseline-rem; 
+    } @else { 
+        $rem-values:(); 
+        @each $value in $px-values{ 
+            @if $value == 0 or type-of($value) != "number"{ 
+                $rem-values: append($rem-values, $value ); 
+            } 
+            @else{
+                $rem-values:append($rem-values,$value/$baseline-rem);
+            }
+        } 
+        $property: $rem-values; 
+    } 
+}
+
+@mixin font-dpr($font-size){
+    font-size: $font-size/2;
+ 
+    [data-dpr="2"] & {
+        font-size: $font-size*1;
+    }
+ 
+    [data-dpr="3"] & {
+        font-size: $font-size/2*3;
+    }
+}
+
+@mixin lineHeight-dpr($line-height){
+    line-height: $line-height/2;
+ 
+    [data-dpr="2"] & {
+     line-height: $line-height*1;
+    }
+ 
+    [data-dpr="3"] & {
+     line-height: $line-height/2*3;
+    }
+}
+
+@function rem($value,$base-px:$baseFs){//px转为rem，写法： padding-top:rem(43px);
+    @return $value/$base-px*1rem;
+}
+
+@mixin flexCenter(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

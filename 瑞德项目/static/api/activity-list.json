@@ -1,0 +1,14 @@
+[
+	{
+		"name":"最新活动",
+		"url":"/activity/detail"
+	},
+	{
+		"name":"活动预约",
+		"url":"/activity/detail"
+	},
+	{
+		"name":"往期回顾",
+		"url":"/activity/detail"
+	}
+]

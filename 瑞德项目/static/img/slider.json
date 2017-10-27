@@ -1,0 +1,18 @@
+[
+	{
+		"hrefUrl":"/",
+		"imgUrl":"./static/img/index-img1.jpg"
+	},
+	{
+		"hrefUrl":"/",
+		"imgUrl":"./static/img/index-img2.jpg"
+	},
+		{
+		"hrefUrl":"/",
+		"imgUrl":"./static/img/index-img3.jpg"
+	},
+		{
+		"hrefUrl":"/",
+		"imgUrl":"./static/img/index-img4.jpg"
+	}
+]
