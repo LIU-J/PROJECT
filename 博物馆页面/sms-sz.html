@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>扇子说明书</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div id="sms-box">
+			<div class="bg">
+				<div class="sms">
+					<div class="sms_page sms_0">纪念品说明书</div>
+					<div class="sms_page sms_1 sms_20 sms_nowT" style="background: url(img/sms-sz-bg.png) no-repeat; background-size: 100% 100%;">
+						<ul class="clearfix">
+							<li>宫纱蜂趁梅</br>，</li>
+							<li>宝扇鸾开翅</br>。</li>
+							<li>数摺聚清风</br>，</li>
+							<li>一捻生秋意</br>。</li>
+						</ul>
+						<div class="sms_fold" style="display: none;">
+							<h3>封</br>面</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_2 sms_20">
+						<h5>产品参数</h5>
+						<table cellspacing="0" cellpadding="0" >
+							<tr>
+								<td>品名：《兰为王香者》折扇</td>
+								<td>类别：黑纸棕竹扇</td>
+							</tr>
+							<tr>
+								<td>创作人：杜鹃</td>
+								<td>材质：桑皮纸、棕竹</td>
+							</tr>
+							<tr>
+								<td>长：30cm</td>
+								<td>包装：精致礼盒包装</td>
+							</tr>
+							<tr>
+								<td colspan="2">收藏价值：浙江工艺美术大师的绘画和书法创作</td>
+							</tr>
+							<tr>
+								<td colspan="2">说明：手工制作，略微差异望见谅，少许瑕疵属正常现象</td>
+							</tr>
+						</table>
+						<div class="sms_fold">
+							<h3>产</br>品</br>参</br>数</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_3 sms_-20">
+						<h5 style="margin: 20px 40px 0;">产品细节</h5>
+						<div class="sms_sl_xj">
+							<img src="img/sms_sz_xj2.png"/>
+							<p>棕竹扇骨，</br>纹理细而柔韧</p>
+						</div>
+						<div class="sms_sl_xj">
+							<img src="img/sms_sz_xj1.png"/>
+							<p>黑子扇面，</br>金粉白描</p>
+						</div>
+						<div class="sms_sl_xj sms_sl_xj3" style="background: url(img/sms_sz_xj3.png);">
+							<span>王星记扇子四中华老字号，致力于传播中华文化</span>
+						</div>
+						<div class="sms_fold">
+							<h3>产</br>品</br>细</br>节</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_4 sms_20">
+						<h5 style="margin: 40px;">产品包装</h5>
+						<img src="img/sms_sz_bz.png"/>
+						<div class="sms_fold">
+							<h3>产</br>品</br>包</br>装</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_5 sms_-20">
+						<h5 style="margin: 40px;">定制订购</h5>
+						<p>定制订购功能暂未开通，敬请期待！</p>
+						<div class="sms_fold">
+							<h3>定</br>制</br>订</br>购</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/jquery.min.js"></script>
+		<script>
+			oSms={
+				pageNumNode:$(".sms_page"),
+				foldNode:$(".sms_fold"),
+				
+				init:function(){
+					var _this=this;
+					for (var i=1;i<_this.pageNumNode.length;i++) {
+						_this.pageNumNode.eq(i).click(function(){
+							var nowPos=$(this).index()
+							$(this).siblings().children(".sms_fold").hide().show()
+							$(this).children(".sms_fold").hide()
+							for (var i=1;i<_this.pageNumNode.length;i++) {
+								_this.pageNumNode.eq(i).removeClass("sms_20")
+								_this.pageNumNode.eq(i).removeClass("sms_-20")
+								_this.pageNumNode.eq(i).removeClass("sms_nowT")
+								_this.pageNumNode.eq(i).removeClass("sms_nowB")
+								if (i>nowPos) {
+									if (i%2==0) {
+										_this.pageNumNode.eq(i).addClass("sms_20")
+									}
+									else{_this.pageNumNode.eq(i).addClass("sms_-20")}
+								}
+								else{
+									if (i%2==0) {
+										_this.pageNumNode.eq(i).addClass("sms_-20")
+									}
+									else{_this.pageNumNode.eq(i).addClass("sms_20")}
+								}
+							}
+							if (nowPos%2==0) {
+								$(this).addClass("sms_nowB")
+							}
+							else{
+								$(this).addClass("sms_nowT")
+							};
+							if (nowPos!=5) {
+								_this.pageNumNode.eq(5).addClass()
+							}
+						})
+					}
+				},
+			}
+			oSms.init()
+		</script>
+	</body>
+</html>

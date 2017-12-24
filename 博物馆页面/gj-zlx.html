@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工匠张来喜-漆器</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" href="css/animate.min.css"/>
+	</head>
+	<body>
+		<div id="gj-box">
+			<div class="bg">
+				<div class="gj_2 zlx-2" style="transform: rotate3d(0, 1, 0, -90deg);">
+					<h3>张来喜<span>(1940)</span></h3>
+					<p>
+						工艺：漆器</br>
+						籍贯：江苏扬州</br>
+						荣誉：中国工艺美术大师</br><span>江苏省级非遗传承人</span>
+						作品：《江山一览》漆雕等</br>
+						<a href="http://huadong.artron.net/20150429/n736038.html" target="_blank">更多信息：http://huadong.artron.net/20150429/n736038.html</a>
+					</p>
+					<button class="return-btn"></button>
+				</div>
+				<div class="gj_1 zlx" style="display: none;">
+					<h3>张来喜</br><span>漆器</span></h3>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			oGj={
+				gj_1Node:$(".gj_1"),
+				gj_2Node:$(".gj_2"),
+				gj_1BtnNode:$(".gj_1 h3"),
+				returnBtnNode:$(".return-btn"),
+				bgNode:$(".bg"),
+				
+				cancelBubble:function(event){
+					var event=event || window.event;
+					if (event.stopPropagation) {
+						event.stopPropagation();
+					}
+					else{
+						event.cancelBubble=true;
+					}
+				},
+				
+				init:function(){
+					var _this=this;
+					_this.bgNode.click(function(){
+						if(_this.gj_2Node.hasClass("rotateInY")){
+							console.log(222)
+							_this.gj_2Node.hide()
+						}	
+						else if (_this.gj_1Node.hasClass("rotateInY") || _this.gj_2Node.not("rotateInY")) {
+							_this.gj_1Node.hide()
+							console.log(111)
+						}
+					})
+					window.onload=function(){
+						_this.cancelBubble(event)
+						_this.gj_1Node.show()
+						_this.gj_2Node.css({display:""})
+						_this.gj_1Node.removeClass("rotateOutY").addClass("rotateInY")
+					}
+					_this.gj_1Node.click(function(){
+						_this.cancelBubble(event)
+					})
+					_this.gj_2Node.click(function(){
+						_this.cancelBubble(event)
+					})
+					_this.gj_1BtnNode.click(function(){
+						_this.cancelBubble(event)
+						$(this).parent().removeClass("rotateInY").addClass("rotateOutY")
+						var gj_2ShowFun=function(){
+							_this.gj_2Node.removeClass("rotateOutY").addClass("rotateInY")
+						}
+						window.setTimeout(gj_2ShowFun,500)
+					});
+					_this.returnBtnNode.click(function(){
+						_this.cancelBubble(event)
+						$(this).parent().removeClass("rotateInY").addClass("rotateOutY")
+						var gj_1ShowFun=function(){
+							_this.gj_1Node.removeClass("rotateOutY").addClass("rotateInY")
+						}
+						window.setTimeout(gj_1ShowFun,500)
+					});
+				},
+			}
+			oGj.init()
+		</script>
+	</body>
+</html>

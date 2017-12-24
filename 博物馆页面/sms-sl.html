@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>手炉说明书</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div id="sms-box">
+			<div class="bg">
+				<div class="sms">
+					<div class="sms_page sms_0">纪念品说明书</div>
+					<div class="sms_page sms_1 sms_20 sms_nowT">
+						<ul class="clearfix">
+							<li>绿蚁新醅酒</br>，</li>
+							<li>红泥小火炉</br>。</li>
+							<li>晚来天欲雪</br>，</li>
+							<li>能饮一杯无</br>？</li>
+						</ul>
+						<div class="sms_fold" style="display: none;">
+							<h3>封</br>面</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_2 sms_20">
+						<h5>产品参数</h5>
+						<table cellspacing="0" cellpadding="0" >
+							<tr>
+								<td>品名：紫铜福瑞提手炉</td>
+								<td>类别：檀香炉</td>
+							</tr>
+							<tr>
+								<td>材质：紫铜</td>
+								<td>适用：盘香、塔香、线香</td>
+							</tr>
+							<tr>
+								<td>净重：565g</td>
+								<td>包装：精致礼盒包装</td>
+							</tr>
+							<tr>
+								<td colspan="2">尺寸：直径10cm*口径6.8cm*高6.8cm（含提手整高9.3cm）</td>
+							</tr>
+							<tr>
+								<td colspan="2">说明：手工测量，略微差异望见谅，少许瑕疵属正常现象</td>
+							</tr>
+						</table>
+						<div class="sms_fold">
+							<h3>产</br>品</br>参</br>数</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_3 sms_-20">
+						<h5 style="margin: 20px 40px 0;">产品细节</h5>
+						<div class="sms_sl_xj">
+							<img src="img/sms_sl_xj2.png"/>
+							<p>精工镂空福字，</br>工艺细腻</p>
+						</div>
+						<div class="sms_sl_xj">
+							<img src="img/sms_sl_xj1.png"/>
+							<p>底部古印，</br>韵味十足</p>
+						</div>
+						<div class="sms_sl_xj sms_sl_xj3">
+							<span>手提炉源于春秋是的楚国，富有历史文化气息</span>
+						</div>
+						<div class="sms_fold">
+							<h3>产</br>品</br>细</br>节</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_4 sms_20">
+						<h5 style="margin: 40px;">产品包装</h5>
+						<img src="img/sms_sl_bz.jpg"/>
+						<div class="sms_fold">
+							<h3>产</br>品</br>包</br>装</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_5 sms_-20">
+						<h5 style="margin: 40px;">定制订购</h5>
+						<p>定制订购功能暂未开通，敬请期待！</p>
+						<div class="sms_fold">
+							<h3>定</br>制</br>订</br>购</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/jquery.min.js"></script>
+		<script>
+			oSms={
+				pageNumNode:$(".sms_page"),
+				foldNode:$(".sms_fold"),
+				
+				init:function(){
+					var _this=this;
+					for (var i=1;i<_this.pageNumNode.length;i++) {
+						_this.pageNumNode.eq(i).click(function(){
+							var nowPos=$(this).index()
+							$(this).siblings().children(".sms_fold").hide().show()
+							$(this).children(".sms_fold").hide()
+							for (var i=1;i<_this.pageNumNode.length;i++) {
+								_this.pageNumNode.eq(i).removeClass("sms_20")
+								_this.pageNumNode.eq(i).removeClass("sms_-20")
+								_this.pageNumNode.eq(i).removeClass("sms_nowT")
+								_this.pageNumNode.eq(i).removeClass("sms_nowB")
+								if (i>nowPos) {
+									if (i%2==0) {
+										_this.pageNumNode.eq(i).addClass("sms_20")
+									}
+									else{_this.pageNumNode.eq(i).addClass("sms_-20")}
+								}
+								else{
+									if (i%2==0) {
+										_this.pageNumNode.eq(i).addClass("sms_-20")
+									}
+									else{_this.pageNumNode.eq(i).addClass("sms_20")}
+								}
+							}
+							if (nowPos%2==0) {
+								$(this).addClass("sms_nowB")
+							}
+							else{
+								$(this).addClass("sms_nowT")
+							};
+							if (nowPos!=5) {
+								_this.pageNumNode.eq(5).addClass()
+							}
+						})
+					}
+				},
+			}
+			oSms.init()
+		</script>
+	</body>
+</html>

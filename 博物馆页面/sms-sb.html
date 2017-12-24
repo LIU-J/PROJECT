@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>梳篦说明书</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<div id="sms-box">
+			<div class="bg">
+				<div class="sms">
+					<div class="sms_page sms_0">纪念品说明书</div>
+					<div class="sms_page sms_1 sms_20 sms_nowT" style="background: url(img/sms-sb-bg.jpg) no-repeat; background-size: 100% 100%;">
+						<ul class="clearfix">
+							<li>梳为木齿丹</br>，</li>
+							<li>每日清晨梳千下</br>,</li>
+							<li>数则固发去风</br>，</li>
+							<li>容颜悦泽</br>。</li>
+							<!--<li>宫梳名篦</br>，</li>
+							<li>情同伉俪</br>,</li>
+							<li>延陵特产</br>，</li>
+							<li>花开并蒂</br>。</li>-->
+						</ul>
+						<div class="sms_fold" style="display: none;">
+							<h3>封</br>面</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_2 sms_20">
+						<h5>产品参数</h5>
+						<table cellspacing="0" cellpadding="0" >
+							<tr>
+								<td>品名：名声远扬震蒲牢梳子</td>
+								<td>类别：降香绿檀</td>
+							</tr>
+							<tr>
+								<td>创作人：杜鹃</td>
+								<td>材质：桑皮纸、棕竹</td>
+							</tr>
+							<tr>
+								<td>规格：长17.7cm*宽5.6cm*厚0.9cm</td>
+								<td>包装：精致礼盒包装</td>
+							</tr>
+							<tr>
+								<td colspan="2">特点：原创设计，彰显尊贵，诠释品味</td>
+							</tr>
+							<tr>
+								<td colspan="2">说明：手作之物，不完美是美。追求工业化标准者谅解。</td>
+							</tr>
+						</table>
+						<div class="sms_fold">
+							<h3>产</br>品</br>参</br>数</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_3 sms_-20">
+						<h5 style="margin: 20px 40px 0;">产品细节</h5>
+						<div class="sms_sl_xj">
+							<img src="img/sms_sb_xj2.png"/>
+							<p>棕竹扇骨，</br>纹理细而柔韧</p>
+						</div>
+						<div class="sms_sl_xj">
+							<img src="img/sms_sb_xj1.png"/>
+							<p>黑子扇面，</br>金粉白描</p>
+						</div>
+						<div class="sms_sl_xj sms_sl_xj3" style="background: url(img/sms_sb_xj3.png);">
+							<span>扬州胭脂苏州花，常州梳篦第一家</span>
+						</div>
+						<div class="sms_fold">
+							<h3>产</br>品</br>细</br>节</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_4 sms_20">
+						<h5 style="margin: 40px;">产品包装</h5>
+						<img src="img/sms_sb_bz.jpg"/>
+						<div class="sms_fold">
+							<h3>产</br>品</br>包</br>装</h3>
+						</div>
+					</div>
+					<div class="sms_page sms_5 sms_-20">
+						<h5 style="margin: 40px;">定制订购</h5>
+						<p>定制订购功能暂未开通，敬请期待！</p>
+						<div class="sms_fold">
+							<h3>定</br>制</br>订</br>购</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/jquery.min.js"></script>
+		<script>
+			oSms={
+				pageNumNode:$(".sms_page"),
+				foldNode:$(".sms_fold"),
+				
+				init:function(){
+					var _this=this;
+					for (var i=1;i<_this.pageNumNode.length;i++) {
+						_this.pageNumNode.eq(i).click(function(){
+							var nowPos=$(this).index()
+							$(this).siblings().children(".sms_fold").hide().show()
+							$(this).children(".sms_fold").hide()
+							for (var i=1;i<_this.pageNumNode.length;i++) {
+								_this.pageNumNode.eq(i).removeClass("sms_20")
+								_this.pageNumNode.eq(i).removeClass("sms_-20")
+								_this.pageNumNode.eq(i).removeClass("sms_nowT")
+								_this.pageNumNode.eq(i).removeClass("sms_nowB")
+								if (i>nowPos) {
+									if (i%2==0) {
+										_this.pageNumNode.eq(i).addClass("sms_20")
+									}
+									else{_this.pageNumNode.eq(i).addClass("sms_-20")}
+								}
+								else{
+									if (i%2==0) {
+										_this.pageNumNode.eq(i).addClass("sms_-20")
+									}
+									else{_this.pageNumNode.eq(i).addClass("sms_20")}
+								}
+							}
+							if (nowPos%2==0) {
+								$(this).addClass("sms_nowB")
+							}
+							else{
+								$(this).addClass("sms_nowT")
+							};
+							if (nowPos!=5) {
+								_this.pageNumNode.eq(5).addClass()
+							}
+						})
+					}
+				},
+			}
+			oSms.init()
+		</script>
+	</body>
+</html>
